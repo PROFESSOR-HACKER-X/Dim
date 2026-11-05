@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>☆ SILVER | CORE</title>
+<style>
+  :root{
+    --bg:#050505;
+    --panel:#0d0d0f;
+    --panel-2:#121216;
+    --silver-1:#e9ecf1;
+    --silver-2:#b8bcc4;
+    --silver-3:#8a8f99;
+    --line:rgba(255,255,255,.08);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--silver-1);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    min-height:100vh}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(255,255,255,.06), transparent 60%),
+      radial-gradient(800px 400px at 100% 100%, rgba(180,190,205,.05), transparent 70%),
+      var(--bg);
+    display:flex;flex-direction:column;align-items:center;
+    padding:24px 16px 40px;
+  }
+  .wrap{width:100%;max-width:520px}
+
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:6px 2px 18px;
+  }
+  .brand{display:flex;align-items:center;gap:10px}
+  .logo{
+    width:34px;height:34px;border-radius:10px;
+    background:linear-gradient(145deg,#f3f5f8,#7d828b 60%,#2a2d33);
+    box-shadow:0 6px 18px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.5);
+    display:grid;place-items:center;color:#111;font-weight:800;font-size:15px;
+  }
+  .brand h1{
+    font-size:15px;letter-spacing:.16em;text-transform:uppercase;
+    margin:0;font-weight:700;
+    background:linear-gradient(90deg,#ffffff,#b8bcc4 60%,#7c818a);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .badge{
+    font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--silver-2);border:1px solid var(--line);
+    padding:5px 9px;border-radius:999px;background:var(--panel);
+  }
+
+  .card{
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:18px;
+    box-shadow:
+      0 20px 40px rgba(0,0,0,.55),
+      inset 0 1px 0 rgba(255,255,255,.05);
+    position:relative;overflow:hidden;
+  }
+  .card::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.06) 50%,transparent 70%);
+    pointer-events:none;
+  }
+  label{
+    display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--silver-3);margin-bottom:8px;
+  }
+  .input-row{display:flex;gap:10px}
+  input[type="tel"],input[type="text"]{
+    flex:1;min-width:0;
+    background:#07070a;
+    border:1px solid var(--line);
+    color:var(--silver-1);
+    border-radius:12px;
+    padding:14px 14px;
+    font-size:16px;letter-spacing:.06em;
+    outline:none;transition:.2s;
+  }
+  input::placeholder{color:#4a4e57}
+  input:focus{border-color:rgba(201,206,214,.35);box-shadow:0 0 0 3px rgba(201,206,214,.08)}
+
+  button{
+    border:none;cursor:pointer;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;font-size:12px;
+    color:#0b0c0e;
+    background:linear-gradient(180deg,#f2f4f7,#b9bec7 55%,#8f949d);
+    padding:0 18px;border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.7);
+    transition:transform .15s ease, filter .2s;
+    min-height:50px;
+  }
+  button:active{transform:translateY(1px) scale(.99);filter:brightness(.95)}
+  button[disabled]{opacity:.55;cursor:not-allowed}
+
+  .hint{margin-top:10px;font-size:11px;color:var(--silver-3);letter-spacing:.04em}
+
+  .status{
+    margin-top:14px;font-size:12px;letter-spacing:.05em;
+    color:var(--silver-2);display:flex;align-items:center;gap:8px;
+    min-height:18px;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:#6b7280;box-shadow:0 0 8px currentColor}
+  .dot.load{background:#f5c451;animation:pulse 1s infinite}
+  .dot.ok{background:#4ade80}
+  .dot.err{background:#f87171}
+  @keyframes pulse{50%{opacity:.35}}
+
+  pre{
+    margin-top:14px;
+    background:#05060a;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px;
+    font-size:12.5px;line-height:1.5;
+    color:#cfd3da;
+    max-height:52vh;overflow:auto;
+    white-space:pre-wrap;word-break:break-word;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  pre::-webkit-scrollbar{width:8px}
+  pre::-webkit-scrollbar-thumb{background:#242830;border-radius:8px}
+
+  footer{
+    margin-top:22px;text-align:center;
+    font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:#5a5e67;line-height:1.8;
+  }
+  footer a{color:var(--silver-2);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="logo">S</div>
+      <h1>Silver Core</h1>
+    </div>
+    <span class="badge">API v1</span>
+  </header>
+
+  <div class="card">
+    <label for="q">Query Number</label>
+    <div class="input-row">
+      <input id="q" type="tel" inputmode="numeric" maxlength="11"
+             placeholder="03XXXXXXXXX" autocomplete="off" />
+      <button id="go">Query</button>
+    </div>
+    <div class="hint">Format: 03 + 9 digits (11 total)</div>
+
+    <div class="status" id="status">
+      <span class="dot" id="dot"></span>
+      <span id="msg">Ready</span>
+    </div>
+
+    <pre id="out">// Response will appear here</pre>
+  </div>
+
+  <footer>
+    Educational use only · &copy; Powered by PROFESSOR DEATH SYSTEM
+  </footer>
+</div>
+
+<script>
+  const $q = document.getElementById('q');
+  const $go = document.getElementById('go');
+  const $dot = document.getElementById('dot');
+  const $msg = document.getElementById('msg');
+  const $out = document.getElementById('out');
+
+  function setStatus(state, text){
+    $dot.className = 'dot ' + state;
+    $msg.textContent = text;
+  }
+
+  async function run(){
+    const q = $q.value.trim();
+    if(!/^03\d{9}$/.test(q)){
+      setStatus('err','Invalid format — need 03XXXXXXXXX');
+      return;
+    }
+    $go.disabled = true;
+    setStatus('load','Querying upstream…');
+    $out.textContent = '// loading…';
+    try{
+      const res = await fetch('/api?query=' + encodeURIComponent(q));
+      const text = await res.text();
+      
+      if(res.ok){
+        setStatus('ok', 'Success');
+        $out.textContent = text;
+      } else {
+        setStatus('err', 'Error ' + res.status);
+        $out.textContent = text;
+      }
+    }catch(e){
+      setStatus('err','Network error');
+      $out.textContent = '// ' + e.message;
+    }finally{
+      $go.disabled = false;
+    }
+  }
+
+  $go.addEventListener('click', run);
+  $q.addEventListener('keydown', e => { if(e.key === 'Enter') run(); });
+  $q.addEventListener('input', () => {
+    $q.value = $q.value.replace(/\D/g,'').slice(0,11);
+  });
+</script>
+</body>
+</html>
